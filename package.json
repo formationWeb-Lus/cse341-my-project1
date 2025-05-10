@@ -1,0 +1,19 @@
+{
+  "name": "dir",
+  "version": "1.0.0",
+  "description": "my first project node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "elder lusa",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/formationWeb-Lus/cse341-my-project1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/formationWeb-Lus/cse341-my-project1/issues"
+  },
+  "homepage": "https://github.com/formationWeb-Lus/cse341-my-project1#readme"
+}
