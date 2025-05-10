@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 // Routes
-app.use('/', require('./routes')); // Vérifie que ./routes/index.js existe
+app.use('/', require('./data/routes')); // Vérifie que ./routes/index.js existe
 
 // Démarrer la connexion à MongoDB puis le serveur
 mongodb.initDb((err, db) => {
