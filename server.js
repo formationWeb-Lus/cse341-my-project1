@@ -1,21 +1,27 @@
 const express = require('express');
+const cors = require('cors');
+const usersRouter = require('./routes/users');
 const mongodb = require('./data/database');
+
 const app = express();
-const port = process.env.PORT || 3000;
 
-app.use(express.json()); // Enable JSON parsing
+app.use(cors());
+app.use(express.json()); // Important si tu fais du POST ou PUT
 
-// Use your routes
-app.use('/', require('./routes'));
-
-// Initialize DB and start the server
+// Initialiser la connexion à MongoDB
 mongodb.initDb((err) => {
   if (err) {
-    console.error('❌ Failed to start server due to database error.');
+    console.error('❌ Erreur de connexion à MongoDB :', err);
+    process.exit(1);
   } else {
-    app.listen(port, () => {
-      console.log(`🚀 Server is running on port ${port}`);
+    console.log('✅ Connexion MongoDB réussie');
+
+    // Placer ici les routes après la connexion à la base
+    app.use('/users', usersRouter);
+
+    // Démarrer le serveur
+    app.listen(3000, () => {
+      console.log('🚀 Serveur lancé sur http://localhost:3000');
     });
   }
 });
-
