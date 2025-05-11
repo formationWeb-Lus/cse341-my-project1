@@ -1,27 +1,34 @@
 const express = require('express');
 const cors = require('cors');
-const usersRouter = require('./routes/users');
-const mongodb = require('./data/database');
+const usersRouter = require('./routes/users'); // Your users route file
+const mongodb = require('./data/database');    // Your MongoDB connection module
 
 const app = express();
 
+// Middleware
 app.use(cors());
-app.use(express.json()); // Important si tu fais du POST ou PUT
+app.use(express.json()); // Parses incoming JSON requests
 
-// Initialiser la connexion à MongoDB
+// Initialize MongoDB connection
 mongodb.initDb((err) => {
   if (err) {
-    console.error('❌ Erreur de connexion à MongoDB :', err);
-    process.exit(1);
+    console.error('❌ Failed to connect to MongoDB:', err);
+    process.exit(1); // Stop app if connection fails
   } else {
-    console.log('✅ Connexion MongoDB réussie');
+    console.log('✅ Connected to MongoDB');
 
-    // Placer ici les routes après la connexion à la base
-    app.use('/users', usersRouter);
+    // Define API routes
+    app.use('/users', usersRouter); // Example: GET /users
 
-    // Démarrer le serveur
-    app.listen(3000, () => {
-      console.log('🚀 Serveur lancé sur http://localhost:3000');
+    // Home route
+    app.get('/', (req, res) => {
+      res.send('Welcome to CSE341!');
+    });
+
+    // Start the server
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running at http://localhost:${PORT}`);
     });
   }
 });
