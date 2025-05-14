@@ -1,13 +1,13 @@
-// Load dependencies
+
 const { MongoClient } = require('mongodb');
 const dotenv = require('dotenv');
 
-// Load environment variables from .env file
+
 dotenv.config();
 
 let database;
 
-// Initialize the database connection
+
 const initDb = (callback) => {
   if (database) {
     console.log('✅ Database is already initialized.');
