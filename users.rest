@@ -2,31 +2,31 @@
 GET http://localhost:3000/users
 
 ### Get one user
-GET http://localhost:3000/users/PASTE_ID_HERE
+GET http://localhost:3000/users/
 
 ### Create new user
 POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "firstName": "Jean",
-  "lastName": "Kabila",
-  "email": "jean.kabila@example.com",
-  "favoriteColor": "green",
-  "birthday": "1985-03-12"
+  "firstName": "dally",
+  "lastName": "mukuta",
+  "email": "dallymukuta12@rdc.com",
+  "favoriteColor": "orange",
+  "birthday": "1996-02-10"
 }
 
 ### Update user
-PUT http://localhost:3000/users/PASTE_ID_HERE
+PUT http://localhost:3000/users/
 Content-Type: application/json
 
 {
-  "firstName": "Jean",
-  "lastName": "Kabila",
-  "email": "jean.kabila@rdc.com",
-  "favoriteColor": "red",
-  "birthday": "1985-03-12"
+  "firstName": "dally",
+  "lastName": "mukuta",
+  "email": "dallymukuta12@rdc.com",
+  "favoriteColor": "orange",
+  "birthday": "1996-02-10"
 }
 
 ### Delete user
-DELETE http://localhost:3000/users/PASTE_ID_HERE
+DELETE http://localhost:3000/users/6827625d924470dd8847546b
