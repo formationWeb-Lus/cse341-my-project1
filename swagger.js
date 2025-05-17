@@ -7,7 +7,7 @@ module.exports = {
   },
   servers: [
     {
-      url: 'http://localhost:3000',
+      url: 'https://cse341-my-project1.onrender.com',
     },
   ],
   paths: {
